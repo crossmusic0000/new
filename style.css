@@ -1,0 +1,96 @@
+html {
+    height: 100%;
+}
+body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background-color: white;
+}
+#home {
+    background-color: white;
+}
+#menu {
+    position: fixed;
+    width: 100%;
+    height: 10%;
+    left: 0%;
+    top: 90%;
+    background-color: white;
+    box-shadow: 0px 0px 7px 1px rgb(94, 94, 94);
+    z-index: 5;
+}
+#item1 {
+    width: 25%;
+    height: 100%;
+    background-color: white;
+    float: left;
+}
+#item2 {
+    width: 25%;
+    height: 100%;
+    background-color: white;
+    float: left;
+}
+#item3 {
+    width: 25%;
+    height: 100%;
+    background-color: white;
+    float: left;
+}
+#item4 {
+    width: 25%;
+    height: 100%;
+    background-color: white;
+    float: left;
+}
+#p {
+    text-align: center;
+}
+.p {
+    margin-top: -17px;
+}
+#i {
+    color: rgb(94, 94, 94);
+    font-size: 35px;
+    margin-top: -5px;
+}
+.ripple {
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+.ripple__effect {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    border-radius: 100%;
+    pointer-events: none;
+    transform: scale(0);
+    opacity: 0;
+}
+.ripple__effect.is-black  { 
+    background: #999;
+}
+.ripple__effect.is-show {
+    animation: ripple 0.75s ease-out;
+}
+@keyframes ripple {
+    from {
+        opacity: 1;
+    }
+    to {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+#top {
+    width: 100%;
+    height: 250px;
+    background: rgb(22, 95, 204);
+}
+#main {
+    width: 100%;
+    height: 700px;
+    background-color: white;
+}
