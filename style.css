@@ -1,5 +1,6 @@
 html {
     height: 100%;
+    width: 100%;
 }
 body{
     height: 100%;
@@ -13,9 +14,9 @@ body{
 #menu {
     position: fixed;
     width: 100%;
-    height: 10%;
+    height: 8%;
     left: 0%;
-    top: 90%;
+    top: 92%;
     background-color: white;
     box-shadow: 0px 0px 7px 1px rgb(94, 94, 94);
     z-index: 5;
@@ -48,12 +49,12 @@ body{
     text-align: center;
 }
 .p {
-    margin-top: -17px;
+    margin-top: -20px;
 }
 #i {
     color: rgb(94, 94, 94);
-    font-size: 35px;
-    margin-top: -5px;
+    font-size: 30px;
+    margin-top: -10px;
 }
 .ripple {
     overflow: hidden;
@@ -87,10 +88,28 @@ body{
 #top {
     width: 100%;
     height: 250px;
-    background: rgb(22, 95, 204);
+    background: #419be0;
 }
-#main {
-    width: 100%;
-    height: 700px;
-    background-color: white;
+#songs {
+    margin-left: 5px;
+}
+#videos {
+    margin-left: 5px;
+}
+#playlist {
+    margin-left: 5px;
+}
+.wrapper {
+    max-height: 300px;
+    display: flex;
+    overflow-x:auto
+}
+.wrapper::-webkit-scrollbar {
+    width: 0;
+}
+.wrapper .item {
+    width: 190px;
+    height: 282px;
+    text-align: center;
+    margin-left: 20px;
 }
