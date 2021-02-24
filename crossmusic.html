@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crossmusic</title>
-    <link rel="shortcut icon" href="crossmusic icon.png">
+    <link rel="shortcut icon" href="images/crossmusic icon.png">
     <script src="https://kit.fontawesome.com/dac92b92d5.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -13,11 +13,45 @@
     <script src="https://code.jquery.com/jquery-3.4.0.min.js" 
     integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" 
     crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">
 </head>
 <body>
     <div id="home">
-        <div id="top"></div>
-        <div id="main"></div>
+        <div id="top">
+        <div class="swiper-container" style="width: 100%;height: 250px;">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/top1.png" style="width: 100%;height: 250px;"></div>
+                <div class="swiper-slide"><img src="images/top2.png" style="width: 100%;height: 250px;"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+        </div>
+        <div id="main">
+            <div id="songs">
+                <h2>人気の曲</h2>
+                <div class="wrapper">
+                    <div class="item"><img style="height: 190px;width: 190px;" src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/ef/ca/a4/efcaa44a-517a-98e3-2353-5bff15471ed5/source/190x190bb.jpg"><h4 style="margin-top: 5px;color: black;">Shape of you</h4><h4 style="margin-top: -20px;color: rgb(105, 105, 105);">-Ed Sheeran</h4></div>
+                    <div class="item"><img style="height: 190px;width: 190px;" src="https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/96/53/3b/96533b35-ec84-3445-cfb7-bcd914985eb9/source/190x190bb.jpg"><h4 style="margin-top: 5px;color: black;">I LOVE...</h4><h4 style="margin-top: -20px;color: rgb(105, 105, 105);">-Official髭男dism</h4></div>
+                    <div class="item"><img style="height: 190px;width: 190px;" src="https://is1-ssl.mzstatic.com/image/thumb/Music/v4/33/5f/6c/335f6cb3-a9f4-fdc4-f8dd-eabd15bb29a3/source/190x190bb.jpg"><h4 style="margin-top: 5px;color: black;">What makes beautiful</h4><h4 style="margin-top: -20px;color: rgb(105, 105, 105);">-One Direction</h4></div>
+                    <div class="item"><img style="height: 190px;width: 190px;" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/43/17/f1/4317f1d4-6ce4-b675-0b1a-7f2edd2bb40b/source/190x190bb.jpg"><h4 style="margin-top: 5px;color: black;">アンコール</h4><h4 style="margin-top: -20px;color: rgb(105, 105, 105);">-YOASOBI</h4></div>
+                    <div class="item"><img style="height: 190px;width: 190px;" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/b5/56/a8/b556a854-a0ca-1803-2e88-3acb622828ae/source/190x190bb.jpg"><h4 style="margin-top: 5px;color: black;">Dynamite</h4><h4 style="margin-top: -20px;color: rgb(105, 105, 105);">-BTS</h4></div>
+                </div>
+            </div>
+            <div id="videos">
+                <h2>人気の動画</h2>
+                <div class="wrapper">
+                    <div class="item"><img style="height: 190px;width: 190px;" src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/ef/ca/a4/efcaa44a-517a-98e3-2353-5bff15471ed5/source/190x190bb.jpg"><h4 style="margin-top: 5px;color: black;">Shape of you</h4><h4 style="margin-top: -20px;color: rgb(105, 105, 105);">-Ed Sheeran</h4></div>
+                    <div class="item"><img style="height: 190px;width: 190px;" src="https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/96/53/3b/96533b35-ec84-3445-cfb7-bcd914985eb9/source/190x190bb.jpg"><h4 style="margin-top: 5px;color: black;">I LOVE...</h4><h4 style="margin-top: -20px;color: rgb(105, 105, 105);">-Official髭男dism</h4></div>
+                    <div class="item"><img style="height: 190px;width: 190px;" src="https://is1-ssl.mzstatic.com/image/thumb/Music/v4/33/5f/6c/335f6cb3-a9f4-fdc4-f8dd-eabd15bb29a3/source/190x190bb.jpg"><h4 style="margin-top: 5px;color: black;">What makes beautiful</h4><h4 style="margin-top: -20px;color: rgb(105, 105, 105);">-One Direction</h4></div>
+                    <div class="item"><img style="height: 190px;width: 190px;" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/43/17/f1/4317f1d4-6ce4-b675-0b1a-7f2edd2bb40b/source/190x190bb.jpg"><h4 style="margin-top: 5px;color: black;">アンコール</h4><h4 style="margin-top: -20px;color: rgb(105, 105, 105);">-YOASOBI</h4></div>
+                    <div class="item"><img style="height: 190px;width: 190px;" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/b5/56/a8/b556a854-a0ca-1803-2e88-3acb622828ae/source/190x190bb.jpg"><h4 style="margin-top: 5px;color: black;">Dynamite</h4><h4 style="margin-top: -20px;color: rgb(105, 105, 105);">-BTS</h4></div>
+                </div>
+            </div>
+            <div id="playlist"></div>
+            <div id="artist"></div>
+        </div>
     </div>
     <div id="menu">
         <div id="item1" class="ripple">
@@ -42,8 +76,26 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"
     integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
+    <script>
+        var mySwiper = new Swiper ('.swiper-container', {
+            loop: true,
+            slidesPerView: 2,
+            spaceBetween: 10,
+            centeredSlides : true,
+            pagination: '.swiper-pagination',
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            breakpoints: {
+            767: {
+                slidesPerView: 1,
+                spaceBetween: 0
+            }
+            }
+        })
+    </script>
 </body>
 </html>
