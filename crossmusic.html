@@ -55,7 +55,7 @@
                     <div class="item"><img style="height: 190px;width: 250px;" src="playlist1.png"><h4 style="margin-top: 5px;">2020年　ヒット曲</h4><h4 style="margin-top: -20px;color: rgb(105, 105, 105);">-Crossmusic</h4></div>
                     <div class="item"><img style="height: 190px;width: 250px;" src="yougakuplaylist.png"><h4 style="margin-top: 5px;">洋楽　ヒット曲</h4><h4 style="margin-top: -20px;color: rgb(105, 105, 105);">-Crossmusic</h4></div>
                     <div class="item"><img style="height: 190px;width: 250px;" src="relaxplaylist.jpg"><h4 style="margin-top: 5px;">リラックス</h4><h4 style="margin-top: -20px;color: rgb(105, 105, 105);">-Crossmusic</h4></div>
-                    <div class="item"><img style="height: 190px;width: 250px;" src=""><h4 style="margin-top: 5px;color: black;">K-POP　HIT</h4><h4 style="margin-top: -20px;color: rgb(105, 105, 105);">-Crossmusic</h4></div>
+                    <div class="item"><img style="height: 190px;width: 250px;" src=""><h4 style="margin-top: 5px;">K-POP　HIT</h4><h4 style="margin-top: -20px;color: rgb(105, 105, 105);">-Crossmusic</h4></div>
                     <div class="item"><img style="height: 190px;width: 250px;" src=""><h4 style="margin-top: 5px;">春のソング</h4><h4 style="margin-top: -20px;color: rgb(105, 105, 105);">-Crossmusic</h4></div>
                 </div>
             </div>
@@ -81,23 +81,66 @@
             </div>
         </div>
     </div>
+    <div id="search">
+        <div id="question">
+        <h2 style="margin-left: 10px;margin-top: 20px;">検索</h2>
+        <div id="search-form">
+            <input title="検索" type="search" id="search-btn" spellcheck="false" autocorrect="on" autocapitalize="on" placeholder="曲の検索...">   
+        </div>
+        <div id="search-kind">
+            <div id="j-pop">
+                <img src="https://cdn.sanity.io/images/e87uzlo8/production/00eecc8e70011d3c86f7a01c773b371963d2867f-1000x667.jpg?w=1200&fm=jpg&q=80" style="width: 100%;height: 150px;border-radius: 5px;opacity: 0.3;">
+                <h2 style="opacity: 1.0;margin-top: -150px;margin-left: 5px;">J-POP</h2>
+            </div>
+            <div id="k-pop">
+                <img src="https://www.lawson.co.jp/lab/campaign/niziu/img/nzu_main4.jpg" style="width: 100%;height: 150px;border-radius: 5px;opacity: 0.3;">
+                <h2 style="opacity: 1.0;margin-top: -150px;margin-left: 5px;">K-POP</h2>
+            </div>
+            <div id="relax">
+                <img src="https://aim-universe.co.jp/andresortlife/wp-content/uploads/2020/07/0-4.jpg" style="width: 100%;height: 150px;border-radius: 5px;opacity: 0.3;">
+                <h2 style="opacity: 1.0;margin-top: -150px;margin-left: 5px;">リラックス</h2>
+            </div>
+            <div id="u-pop">
+                <img src="http://blog-imgs-103.fc2.com/m/u/s/musicaholicoversea/ed1.jpg" style="width: 100%;height: 150px;border-radius: 5px;opacity: 0.3;">
+                <h2 style="opacity: 1.0;margin-top: -150px;margin-left: 5px;">洋楽</h2>
+            </div>
+            <div id="spring">
+                <img src="https://www.jalan.net/news/img/2018/01/1802_kanto_center_030-670x443.jpg" style="width: 100%;height: 150px;border-radius: 5px;opacity: 0.3;">
+                <h2 style="opacity: 1.0;margin-top: -150px;margin-left: 5px;">春</h2>
+            </div>
+            <div id="ranking">
+                <img src="https://higedan.com/wp-content/themes/higedan_renewal2020_cms/img/artist-photo-20210101.jpeg" style="width: 100%;height: 150px;border-radius: 5px;opacity: 0.3;">
+                <h2 style="opacity: 1.0;margin-top: -150px;margin-left: 5px;">チャート</h2>
+            </div>
+        </div>
+        </div>
+        <div id="result">
+        </div>
+    </div>
+    <div id="library">
+        <h2 style="margin-left: 10px;margin-top: 20px;">ライブラリ</h2>
+        <p style="text-align: center;margin-top: 70px;">プレミアムに入ると、プレイリストを作成できます。</p>
+        <p style="text-align: center;"><input type="button" title="プレミアム" value="プレミアムへ" id="library-btn"></p>
+        <img src="playlist1.svg"  style="width: 86%;margin-left: 7%;height: 350px;margin-top: 40px;">
+    </div>
+    <div id="premium"></div>
     <div id="menu">
-        <div id="item1" class="ripple">
+        <div id="item1" class="ripple" onclick="home()">
             <span class="ripple__effect is-black"></span>
             <p id="p"><i class="fas fa-home" id="i"></i></p>
             <p id="p" style="color: white;" class="p">ホーム</p>
         </div>
-        <div id="item2" class="ripple">
-            <span class="ripple__effect is-black"></span>
+        <div id="item2" class="ripple" onclick="search()">
+            <span class="ripple__effect is-black" onclick="search()"></span>
             <p id="p"><i class="fas fa-search" id="i"></i></p>
             <p id="p" style="color: white;" class="p">検索</p>
         </div>
-        <div id="item3" class="ripple">
+        <div id="item3" class="ripple" onclick="library()">
             <span class="ripple__effect is-black"></span>
             <p id="p"><i class="fas fa-compact-disc" id="i"></i></p>
             <p id="p" style="color: white;" class="p">ライブラリ</p>
         </div>
-        <div id="item4" class="ripple">
+        <div id="item4" class="ripple" onclick="premium()">
             <span class="ripple__effect is-blue"></span>
             <p id="p"><i class="fas fa-user" id="i" style="color: #419be0;"></i></p>
             <p id="p" style="color: #419be0;" class="p">プレミアム</p>
