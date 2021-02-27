@@ -38,6 +38,15 @@ body{
     z-index: 5;
     display: flex;
 }
+#premium-mode {
+    width: 92%;
+    height: 400px;
+    background: linear-gradient(#419be0, rgb(0, 72, 255));
+    margin-left: 4%;
+    margin-top: 40px;
+    border-radius: 10px;
+    padding-top: 20px;
+}
 h2, h3, h4, p {
     color: white;
 }
@@ -211,8 +220,8 @@ h2, h3, h4, p {
     width: 200px;
     height: 40px;
     font-size: 17px;
-    border: 1px solid #419be0;
-    background-color: #419be0;
+    border: 1px solid rgb(0, 72, 255);
+    background-color: rgb(0, 72, 255);
     color: white;
     outline: none;
     cursor: pointer;
@@ -220,7 +229,7 @@ h2, h3, h4, p {
     margin-top: 10px;
 }
 #library-btn:focus {
-    background-color: #74b8ec;
+    background-color: #419be0;
 }
 #j-pop, #relax, #spring {
     width: 49%;
