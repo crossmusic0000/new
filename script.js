@@ -98,6 +98,8 @@ function enter(){
             searchWord({term: word2,limit: 15});
         }else {
             searchWord({term: word1,limit: 15});
+            var target2 = document.getElementById("searchFocus2");
+            target2.value = word1;
         }
     }
 }
@@ -233,19 +235,70 @@ function looks(json) {
             var targetStr = "100x100bb.jpg";
             var regExp = new RegExp( targetStr, "g" ) ;
             var img = sourceStr.replace( regExp , "350x350bb.jpg" );
-            var img_big = sourceStr.replace( regExp , "1000x1000bb.jpg");
-            //document.getElementById("look").style.backgroundImage = 'url(' + img_big + ')';
 
-            html += '<i class="fas fa-arrow-left" title="戻る" style="margin-left: 10px;color: white;font-size: 20px;margin-top: 10px;" onclick="past_result()"></i><br><br>';
+            html += '<i class="fas fa-arrow-left" style="margin-left: 10px;color: white;font-size: 20px;margin-top: 10px;float: left;" onclick="past_result()"></i><i class="fas fa-ellipsis-h" style="margin-left: 350px;color: white;font-size: 20px;margin-top: 10px;float: left;" onclick="preview_song()"></i><br><br>';
             html += '<p style="text-align: center;"><img src="' + img + '" style="width: 300px;height: 300px;"></p>';
             html += '<div><h1 style="color: white;text-align: center;">' + result.trackName + '</h1><h3 style="color: rgb(105, 105, 105);text-align: center;margin-top: -15px;">' + result.artistName + '</h3>';
             html += '<div style="text-align: center;margin-top: 5px;"><div class="seek"><div class="fill"></div></div><div class="time">00:00 <span>/</span> 00:00</div>';
-            html += '<div class="repeat-btns" style="margin-top: -5px;"><p style="text-align: center;"><span id="' + result.artistName + '" onclick="btn1(this.id)"><i class="fas fa-tv" style="margin:15px;font-size: 20px;" title="関連曲"></i></span><span onclick="btn2()"><i style="margin:15px;font-size: 20px;" class="fas fa-microphone-alt" title="歌詞"></i></span><span><button class="play-pause" id="' + result.trackId + '" style="margin: 15px"><i title="再生" class="fa fa-play"></i></button></span><span onclick="btn3()"><i title="お気に入り" class="fas fa-star" style="margin: 15px;font-size: 20px;"></i></span><span id="' + result.trackViewUrl + '" onclick="btn4(this.id)"><i style="margin: 15px;font-size: 20px;" title="ダウンロード" class="fas fa-download"></i></span></p></div>';
+            html += '<div class="repeat-btns" style="margin-top: -5px;"><p style="text-align: center;"><span id="' + result.artistName + '" onclick="btn1(this.id)"><i class="fas fa-tv" style="margin:15px;font-size: 20px;"></i></span><span onclick="btn2()"><i style="margin:15px;font-size: 20px;" class="fas fa-microphone-alt" title="歌詞"></i></span><span><button class="play-pause" id="play-pause" onclick="play()" style="margin: 15px"><i class="fa fa-play"></i></button></span><span onclick="btn3()"><i class="fas fa-star" style="margin: 15px;font-size: 20px;"></i></span><span id="' + result.trackViewUrl + '" onclick="btn4(this.id)"><i style="margin: 15px;font-size: 20px;" class="fas fa-download"></i></span></p></div>';
             html += '<br><br><br></div>';
+            html += '<audio src="' + result.previewUrl + '" id="audio" style="display: none;"></audio>';
         }
         html += '</div>';
     }
     look.innerHTML = html;
+}
+
+function preview_song() {
+    //var previewBox = document.getElementById("preview-box");
+    //var information = ""
+    document.getElementById("preview-box").style.display = "block";
+}
+
+function not_preview_song() {
+    document.getElementById("preview-box").style.display = "none";
+}
+
+function play() {
+    const audio = document.getElementById("audio");
+    const playPause  = document.getElementById("play-pause");
+    let fillbar = document.querySelector(".fill");
+    let currentTime = document.querySelector(".time");
+
+    if (! audio.paused ) {
+        playPause.innerHTML = '<i class="fas fa-play"></i>';
+        audio.pause();
+    } else {
+        playPause.innerHTML = '<i class="fas fa-pause"></i>';
+        audio.play();
+    }
+    audio.addEventListener("timeupdate", function() {
+        let position = audio.currentTime / audio.duration;
+        fillbar.style.width = position * 100 + "%";
+        convertTime(Math.round(audio.currentTime));
+    });
+
+    function convertTime(seconds) {
+        let min = Math.floor(seconds / 60);
+        let sec = seconds % 60;
+        min = min < 10 ? "0" + min : min;
+        sec = sec < 10 ? "0" + sec : sec;
+        currentTime.textContent = min + ":" + sec;
+        totalTime(Math.round(audio.duration));
+    }
+      
+    function totalTime(seconds) {
+        let min = Math.floor(seconds / 60);
+        let sec = seconds % 60;
+        min = min < 10 ? "0" + min : min;
+        sec = sec < 10 ? "0" + sec : sec;
+        currentTime.textContent += " / " + min + ":" + sec;
+    }
+
+    audio.addEventListener("ended", ()=>{
+        audio.currentTime = 0;
+        playPause.innerHTML = '<i class="fas fa-play"></i>';
+    });
 }
 
 function btn1(clicked_id) {
