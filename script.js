@@ -236,7 +236,7 @@ function looks(json) {
             var regExp = new RegExp( targetStr, "g" ) ;
             var img = sourceStr.replace( regExp , "350x350bb.jpg" );
 
-            html += '<i class="fas fa-arrow-left" style="margin-left: 10px;color: white;font-size: 20px;margin-top: 10px;float: left;" onclick="past_result()"></i><i class="fas fa-ellipsis-h" style="margin-left: 350px;color: white;font-size: 20px;float: left;" onclick="preview_song()"></i><br><br>';
+            html += '<i class="fas fa-arrow-left" style="margin-left: 10px;color: white;font-size: 20px;margin-top: 10px;float: left;" onclick="past_result()"></i><i class="fas fa-ellipsis-h" style="margin-left: 350px;color: white;font-size: 20px;margin-top: 10px;float: left;" onclick="preview_song()"></i><br><br>';
             html += '<p style="text-align: center;"><img src="' + img + '" style="width: 300px;height: 300px;"></p>';
             html += '<div><h1 style="color: white;text-align: center;">' + result.trackName + '</h1><h3 style="color: rgb(105, 105, 105);text-align: center;margin-top: -15px;">' + result.artistName + '</h3>';
             html += '<div style="text-align: center;margin-top: 5px;"><div class="seek"><div class="fill"></div></div><div class="time">00:00 <span>/</span> 00:00</div>';
