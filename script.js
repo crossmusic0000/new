@@ -244,7 +244,7 @@ function looks(json) {
             var sourceStr = result.artworkUrl100;
             var targetStr = "100x100bb.jpg";
             var regExp = new RegExp( targetStr, "g" ) ;
-            var img = sourceStr.replace( regExp , "350x350bb.jpg" );
+            var img = sourceStr.replace( regExp , "420x420bb.jpg" );
 
             html += '<i class="fas fa-arrow-left" style="margin-left: 10px;color: white;font-size: 20px;margin-top: 10px;float: left;" onclick="past_result()"></i><i class="fas fa-ellipsis-h" style="margin-left: 350px;color: white;font-size: 20px;margin-top: 10px;float: left;" id="' + result.trackId + '" onclick="preview_song(this.id)"></i><br><br>';
             html += '<p style="text-align: center;"><img src="' + img + '" style="width: 320px;height: 320px;"></p>';
@@ -252,7 +252,7 @@ function looks(json) {
             html += '<div style="text-align: center;margin-top: 5px;"><div class="seek"><div class="fill"></div></div><div class="time">00:00 <span>/</span> 00:00</div>';
             html += '<div class="repeat-btns" style="margin-top: -5px;"><p style="text-align: center;"><span id="' + result.artistName + '" onclick="btn1(this.id)"><i class="fas fa-tv" style="margin:15px;font-size: 20px;"></i></span><span id="' + result.trackId + '" onclick="btn2(this.id)"><i style="margin:15px;font-size: 20px;" class="fas fa-microphone-alt"></i></span><span><button class="play-pause" id="play-pause" onclick="play()" style="margin: 15px"><i class="fa fa-play"></i></button></span><span onclick="btn3()"><i class="fas fa-star" style="margin: 15px;font-size: 20px;"></i></span><span id="' + result.trackViewUrl + '" onclick="btn4(this.id)"><i style="margin: 15px;font-size: 20px;" class="fas fa-download"></i></span></p></div>';
             html += '<br><br><br></div>';
-            html += '<audio src="' + result.previewUrl + '" id="audio" style="display: none;"></audio>';
+            html += '<audio src="' + result.previewUrl + '" id="audio" style="display: none;" loop></audio>';
         }
         html += '</div>';
     }
@@ -292,7 +292,7 @@ function thisPreviewSong(json) {
             var sourceStr = result.artworkUrl100;
             var targetStr = "100x100bb.jpg";
             var regExp = new RegExp( targetStr, "g" ) ;
-            var img = sourceStr.replace( regExp , "150x150bb.jpg" );
+            var img = sourceStr.replace( regExp , "250x250bb.jpg" );
 
             html += '<i class="fas fa-times" style="margin-left: 10px;color: white;font-size: 15px;margin-top: 10px;" onclick="not_preview_song()"></i><p style="color: white;text-align: center;margin-top: 10px;font-size: 25px;">' + result.trackName + '</p>';
             html += '<p style="text-align: center;margin-top: 10px;"><img src="' + img + '" style="width: 150px;height: 150px;"></p>';
