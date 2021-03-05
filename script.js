@@ -41,6 +41,9 @@ document.getElementById("result").style.display = "none";
 document.getElementById("look").style.display = "none";
 document.getElementById("related").style.display = "none";
 document.getElementById("lyric").style.display = "none";
+document.getElementById("result2").style.display = "none";
+document.getElementById("result1").style.display = "none";
+document.getElementById("artist-look").style.display = "none";
 
 function home() {
     document.getElementById("home").style.display = "block";
@@ -52,6 +55,9 @@ function home() {
     document.getElementById("look").style.display = "none";
     document.getElementById("related").style.display = "none";
     document.getElementById("lyric").style.display = "none";
+    document.getElementById("result2").style.display = "none";
+    document.getElementById("result1").style.display = "none";
+    document.getElementById("artist-look").style.display = "none";
 }
 function search() {
     document.getElementById("home").style.display = "none";
@@ -63,6 +69,9 @@ function search() {
     document.getElementById("look").style.display = "none";
     document.getElementById("related").style.display = "none";
     document.getElementById("lyric").style.display = "none";
+    document.getElementById("result2").style.display = "none";
+    document.getElementById("result1").style.display = "none";
+    document.getElementById("artist-look").style.display = "none";
 
     var target2 = document.getElementById("searchFocus2");
     target2.value = "";
@@ -77,6 +86,9 @@ function library() {
     document.getElementById("look").style.display = "none";
     document.getElementById("related").style.display = "none";
     document.getElementById("lyric").style.display = "none";
+    document.getElementById("result2").style.display = "none";
+    document.getElementById("result1").style.display = "none";
+    document.getElementById("artist-look").style.display = "none";
 }
 function premium() {
     document.getElementById("home").style.display = "none";
@@ -88,8 +100,10 @@ function premium() {
     document.getElementById("look").style.display = "none";
     document.getElementById("related").style.display = "none";
     document.getElementById("lyric").style.display = "none";
+    document.getElementById("result2").style.display = "none";
+    document.getElementById("result1").style.display = "none";
+    document.getElementById("artist-look").style.display = "none";
 }
-
 
 document.onkeypress = enter;
 function enter(){
@@ -102,9 +116,9 @@ function enter(){
             var word2 = target2.value;
             searchWord({term: word2,limit: 20});
         }else {
-            searchWord({term: word1,limit: 20});
             var target2 = document.getElementById("searchFocus2");
             target2.value = word1;
+            searchWord({term: word1,limit: 20});
         }
     }
 }
@@ -146,6 +160,9 @@ var searchWord = function getInfo(options) {
             document.getElementById("look").style.display = "none";
             document.getElementById("related").style.display = "none";
             document.getElementById("lyric").style.display = "none";
+            document.getElementById("result2").style.display = "none";
+            document.getElementById("result1").style.display = "block";
+            document.getElementById("artist-look").style.display = "none";
             document.getElementById("result1").innerHTML = '<p style="margin-left: 10px;margin-top: 20px;">インターネット接続がありません。</p>';
         }
     });
@@ -161,6 +178,9 @@ function past_result() {
     document.getElementById("look").style.display = "none";
     document.getElementById("related").style.display = "none";
     document.getElementById("lyric").style.display = "none";
+    document.getElementById("result2").style.display = "none";
+    document.getElementById("result1").style.display = "block";
+    document.getElementById("artist-look").style.display = "none";
 }
         
 function showData(json) {
@@ -173,10 +193,15 @@ function showData(json) {
     document.getElementById("look").style.display = "none";
     document.getElementById("related").style.display = "none";
     document.getElementById("lyric").style.display = "none";
+    document.getElementById("result1").style.display = "block";
+    document.getElementById("result2").style.display = "none";
+    document.getElementById("artist-look").style.display = "none";
 
     if (json.results.length != 0) {
         var result1 = document.getElementById("result1");
-        html  = '<h2 style="margin-left: 10px;margin-top: 20px;">検索結果</h2>';
+        html = '<h2 style="margin-left: 10px;margin-top: 20px;">検索結果</h2>';
+        html += '<button type="button" id="btn-video" class="ripple" style="float: left;color: #419be0;border: solid 1px #419be0;border-top: none;border-left: none;border-right: none;">Songs<span class="ripple__effect is-black"></span></button>';
+        html += '<button type="button" onclick="videoLook()" id="btn-video" class="ripple" style="float: left;margin-left: 20px;color: white;border: none;">Videos<span class="ripple__effect is-black"></span></button><br><br>';
                 
         for (var i = 0, len = json.results.length; i < len; i++) {
             var resultWord = json.results[i];
@@ -187,8 +212,40 @@ function showData(json) {
             html += '<h4 style="color: rgb(105, 105, 105);margin-top: -15px;font-weight: 90;">' + resultWord.artistName + '</h4>';
             html += '</div></div>';
         }
+        html += '<br><br><br>';
     }
     result1.innerHTML = html;
+}
+
+function videoLook() {
+    document.getElementById("home").style.display = "none";
+    document.getElementById("search").style.display = "block";
+    document.getElementById("library").style.display = "none";
+    document.getElementById("premium").style.display = "none";
+    document.getElementById("question").style.display = "none";
+    document.getElementById("result").style.display = "block";
+    document.getElementById("look").style.display = "none";
+    document.getElementById("related").style.display = "none";
+    document.getElementById("lyric").style.display = "none";
+    document.getElementById("result1").style.display = "none";
+    document.getElementById("result2").style.display = "block";
+    document.getElementById("artist-look").style.display = "none";
+    document.getElementById("result2").innerHTML = '<h2 style="margin-left: 10px;margin-top: 20px;">検索結果</h2><button type="button" id="btn-video" class="ripple" style="float: left;color: white;border: none;" onclick="songLook()">Songs<span class="ripple__effect is-black"></span></button><button type="button" id="btn-video" class="ripple" style="float: left;margin-left: 20px;color: #419be0;border: solid 1px #419be0;border-top: none;border-left: none;border-right: none;">Videos<span class="ripple__effect is-black"></span></button><br><br>';
+}
+
+function songLook() {
+    document.getElementById("home").style.display = "none";
+    document.getElementById("search").style.display = "block";
+    document.getElementById("library").style.display = "none";
+    document.getElementById("premium").style.display = "none";
+    document.getElementById("question").style.display = "none";
+    document.getElementById("result").style.display = "block";
+    document.getElementById("look").style.display = "none";
+    document.getElementById("related").style.display = "none";
+    document.getElementById("lyric").style.display = "none";
+    document.getElementById("result2").style.display = "none";
+    document.getElementById("result1").style.display = "block";
+    document.getElementById("artist-look").style.display = "none";
 }
 
 function view(clicked_id) {
@@ -201,6 +258,9 @@ function view(clicked_id) {
     document.getElementById("look").style.display = "block";
     document.getElementById("related").style.display = "none";
     document.getElementById("lyric").style.display = "none";
+    document.getElementById("result1").style.display = "none";
+    document.getElementById("result2").style.display = "none";
+    document.getElementById("artist-look").style.display = "none";
 
     var view_song = 'https://itunes.apple.com/lookup?id=' + clicked_id;
     var parts = {
@@ -229,6 +289,9 @@ function view(clicked_id) {
             document.getElementById("look").style.display = "block";
             document.getElementById("related").style.display = "none";
             document.getElementById("lyric").style.display = "none";
+            document.getElementById("result2").style.display = "none";
+            document.getElementById("result1").style.display = "none";
+            document.getElementById("artist-look").style.display = "none";
             document.getElementById("look").innerHTML = '<i onclick="past_result()" class="fas fa-arrow-left" title="戻る" style="margin-left: 10px;margin-top: 10px;color: left;font-size: 20px;"></i><p style="color: white;margin-left: 10px;margin-top: 20px;">インターネット接続がありません。</p>';
         }
     });
@@ -244,15 +307,15 @@ function looks(json) {
             var sourceStr = result.artworkUrl100;
             var targetStr = "100x100bb.jpg";
             var regExp = new RegExp( targetStr, "g" ) ;
-            var img = sourceStr.replace( regExp , "420x420bb.jpg" );
+            var img = sourceStr.replace( regExp , "450x450bb.jpg" );
 
-            html += '<i class="fas fa-arrow-left" style="margin-left: 10px;color: white;font-size: 20px;margin-top: 10px;float: left;" onclick="past_result()"></i><i class="fas fa-ellipsis-h" style="margin-left: 350px;color: white;font-size: 20px;margin-top: 10px;float: left;" id="' + result.trackId + '" onclick="preview_song(this.id)"></i><br><br>';
+            html += '<i class="fas fa-arrow-left" style="margin-left: 10px;color: white;font-size: 20px;margin-top: 10px;float: left;" onclick="past_result()"></i><i class="fas fa-ellipsis-h" style="margin-left: 350px;color: white;font-size: 20px;margin-top: 0px;float: left;" id="' + result.trackId + '" onclick="preview_song(this.id)"></i><br><br>';
             html += '<p style="text-align: center;"><img src="' + img + '" style="width: 320px;height: 320px;"></p>';
             html += '<div><h1 style="color: white;text-align: center;">' + result.trackName + '</h1><h3 style="color: rgb(105, 105, 105);text-align: center;margin-top: -15px;">' + result.artistName + '</h3>';
             html += '<div style="text-align: center;margin-top: 5px;"><div class="seek"><div class="fill"></div></div><div class="time">00:00 <span>/</span> 00:00</div>';
             html += '<div class="repeat-btns" style="margin-top: -5px;"><p style="text-align: center;"><span id="' + result.artistName + '" onclick="btn1(this.id)"><i class="fas fa-tv" style="margin:15px;font-size: 20px;"></i></span><span id="' + result.trackId + '" onclick="btn2(this.id)"><i style="margin:15px;font-size: 20px;" class="fas fa-microphone-alt"></i></span><span><button class="play-pause" id="play-pause" onclick="play()" style="margin: 15px"><i class="fa fa-play"></i></button></span><span onclick="btn3()"><i class="fas fa-star" style="margin: 15px;font-size: 20px;"></i></span><span id="' + result.trackViewUrl + '" onclick="btn4(this.id)"><i style="margin: 15px;font-size: 20px;" class="fas fa-download"></i></span></p></div>';
             html += '<br><br><br></div>';
-            html += '<audio src="' + result.previewUrl + '" id="audio" style="display: none;" loop></audio>';
+            html += '<audio src="' + result.previewUrl + '" id="audio" style="display: none;"></audio>';
         }
         html += '</div>';
     }
@@ -260,7 +323,7 @@ function looks(json) {
 }
 
 function preview_song(clicked_id) {
-    $("#preview-box").fadeIn("normal"); 
+    $("#preview-box").fadeIn("fast"); 
 
     var view_song = 'https://itunes.apple.com/lookup?id=' + clicked_id;
     var parts = {
@@ -308,7 +371,7 @@ function thisPreviewSong(json) {
 }
 
 function not_preview_song() {
-    $("#preview-box").fadeOut("normal"); 
+    $("#preview-box").fadeOut("fast"); 
 }
 
 function play() {
@@ -363,6 +426,9 @@ function btn1(clicked_id) {
     document.getElementById("look").style.display = "none";
     document.getElementById("related").style.display = "block";
     document.getElementById("lyric").style.display = "none";
+    document.getElementById("result2").style.display = "none";
+    document.getElementById("result1").style.display = "none";
+    document.getElementById("artist-look").style.display = "none";
 
     search_related({term: clicked_id,limit: 20});
 }
@@ -405,6 +471,9 @@ function past_look() {
     document.getElementById("look").style.display = "block";
     document.getElementById("related").style.display = "none";
     document.getElementById("lyric").style.display = "none";
+    document.getElementById("result2").style.display = "none";
+    document.getElementById("result1").style.display = "none";
+    document.getElementById("artist-look").style.display = "none";
 }
 
 function shows_related(json) {
@@ -421,6 +490,7 @@ function shows_related(json) {
             html += '<h4 style="color: rgb(105, 105, 105);margin-top: -15px;font-weight: 90;">' + resultWord.artistName + '</h4>';
             html += '</div></div>';
         }
+        html += '<br><br><br>';
     }
     related.innerHTML = html;
 }
@@ -435,6 +505,9 @@ function btn2(clicked_id) {
     document.getElementById("look").style.display = "none";
     document.getElementById("related").style.display = "none";
     document.getElementById("lyric").style.display = "block";
+    document.getElementById("result2").style.display = "none";
+    document.getElementById("result1").style.display = "none";
+    document.getElementById("artist-look").style.display = "none";
 
     var view_song = 'https://itunes.apple.com/lookup?id=' + clicked_id;
     var parts = {
