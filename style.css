@@ -14,18 +14,28 @@ body{
 }
 #search {
     background: rgb(30, 30, 30);
+    height: 100%;
 }
 #library {
     background-color: rgb(30, 30, 30);
+    height: 100%;
 }
 #premium {
     background-color: rgb(30, 30, 30);
+    height: 100%;
 }
 #look {
     background: linear-gradient(#419be0, rgb(30, 30, 30));
     width: 100%;
-    position: absolute;
+    position: fixed;
     z-index: 15;
+    height: 100%;
+}
+#artist-look {
+    background-color: rgb(30, 30, 30);
+}
+#result2 {
+    background-color: rgb(30, 30, 30);
 }
 #related {
     background-color: rgb(30, 30, 30);
@@ -37,6 +47,15 @@ body{
     overflow-y: scroll;
     position: absolute;
     z-index: 15;
+    height: 100%;
+}
+#btn-video {
+    width: 140px;
+    height: 40px;
+    background: rgb(30, 30, 30);
+    font-size: 25px;
+    margin-left: 2%;
+    outline: none;
 }
 #menu {
     position: fixed;
@@ -175,7 +194,7 @@ h2, h3, h4, p {
     margin-left: 20px;
 }
 #main {
-    height: 1700px;
+    height: 1750px;
 }
 #playlist .wrapper {
     max-height: 300px;
