@@ -115,14 +115,54 @@ function enter(){
             var target2 = document.getElementById("searchFocus2");
             var word2 = target2.value;
             searchWord({term: word2,limit: 20});
+
+            $.get(
+                "https://www.googleapis.com/youtube/v3/search",{
+                part: 'snippet, id',
+                q: word2,
+                type:'video',
+                key: 'AIzaSyBmDq6xDTCI12GvdKQNLAs6HBvgI8bH5GY'},
+                function(data){
+                    $.each(data.items, function(i, item){
+                        var output = searchWordVideo(item);
+                        $('#result2').append(output);
+                    });
+                }
+            );
         }else {
             var target2 = document.getElementById("searchFocus2");
             target2.value = word1;
             searchWord({term: word1,limit: 20});
+
+            $.get(
+                "https://www.googleapis.com/youtube/v3/search",{
+                part: 'snippet, id',
+                q: word1,
+                type:'video',
+                key: 'AIzaSyBmDq6xDTCI12GvdKQNLAs6HBvgI8bH5GY'},
+                function(data){
+                    $.each(data.items, function(i, item){
+                        var output = searchWordVideo(item);
+                        $('#result2').append(output);
+                    });
+                }
+            );
         }
     }
 }
 
+function searchWordVideo(item) {
+    var title = item.snippet.title;
+    var description = item.snippet.description;
+    var img = item.snippet.thumbnails.medium.url
+    var channelTitle = item.snippet.channelTitle;
+    var videoDate = item.snippet.publishedAt;
+    var videoId = item.id.videoId;
+
+    var output = '<div style="width: 96%;height: 80px;margin-left: 2%;margin-top: 10px;" id=' + videoId + ' onclick="view(this.id)"><img style="width: 120px;height: 80px;" src="' + img + '" class="itunes-embed-image"/><br><div style="margin-left: 140px;margin-top: -100px;"><h4 class="itunes-embed-artist" style="font-weight: 90;">' + title + '</h4><h4 style="color: rgb(105, 105, 105);margin-top: -15px;font-weight: 90;">' + channelTitle + '</h4></div></div>';
+
+    return output;
+}
 
 var searchWord = function getInfo(options) {
     var params = {
@@ -230,7 +270,7 @@ function videoLook() {
     document.getElementById("result1").style.display = "none";
     document.getElementById("result2").style.display = "block";
     document.getElementById("artist-look").style.display = "none";
-    document.getElementById("result2").innerHTML = '<h2 style="margin-left: 10px;margin-top: 20px;">検索結果</h2><button type="button" id="btn-video" class="ripple" style="float: left;color: white;border: none;" onclick="songLook()">Songs<span class="ripple__effect is-black"></span></button><button type="button" id="btn-video" class="ripple" style="float: left;margin-left: 20px;color: #419be0;border: solid 1px #419be0;border-top: none;border-left: none;border-right: none;">Videos<span class="ripple__effect is-black"></span></button><br><br>';
+    //document.getElementById("result2").innerHTML = '<h2 style="margin-left: 10px;margin-top: 20px;">検索結果</h2><button type="button" id="btn-video" class="ripple" style="float: left;color: white;border: none;" onclick="songLook()">Songs<span class="ripple__effect is-black"></span></button><button type="button" id="btn-video" class="ripple" style="float: left;margin-left: 20px;color: #419be0;border: solid 1px #419be0;border-top: none;border-left: none;border-right: none;">Videos<span class="ripple__effect is-black"></span></button><br><br><div id="result2-video"></div>';
 }
 
 function songLook() {
@@ -292,7 +332,7 @@ function view(clicked_id) {
             document.getElementById("result2").style.display = "none";
             document.getElementById("result1").style.display = "none";
             document.getElementById("artist-look").style.display = "none";
-            document.getElementById("look").innerHTML = '<i onclick="past_result()" class="fas fa-arrow-left" title="戻る" style="margin-left: 10px;margin-top: 10px;color: left;font-size: 20px;"></i><p style="color: white;margin-left: 10px;margin-top: 20px;">インターネット接続がありません。</p>';
+            document.getElementById("look").innerHTML = '<i onclick="past_result()" class="fas fa-arrow-left" title="戻る" style="margin-left: 10px;margin-top: 10px;float: left;font-size: 20px;color: white;"></i><p style="color: white;margin-left: 10px;margin-top: 10px;">インターネット接続がありません。</p>';
         }
     });
 }
@@ -565,3 +605,5 @@ function countUp() {
 function btn4(clicked_id) {
     window.open(clicked_id, '_blank');
 }
+
+console.log("%c個人情報は、決して盗まないでください。", 'color: red; background: white; font-size: 30px;');
